@@ -1,0 +1,373 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>Windows下使用Hugo与Github Pages部署博客网站 - Kissy's Blog</title><meta name=author content="Kissy">
+<meta name=description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz
+"><meta name=keywords content='Blog'><meta itemprop=name content="Windows下使用Hugo与Github Pages部署博客网站"><meta itemprop=description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta itemprop=datePublished content="2025-01-23T21:01:26+08:00"><meta itemprop=dateModified content="2025-01-23T21:01:26+08:00"><meta itemprop=wordCount content="2383"><meta itemprop=image content="https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp"><meta itemprop=keywords content="Blog"><meta property="og:url" content="https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"><meta property="og:site_name" content="Kissy's Blog"><meta property="og:title" content="Windows下使用Hugo与Github Pages部署博客网站"><meta property="og:description" content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-01-23T21:01:26+08:00"><meta property="article:modified_time" content="2025-01-23T21:01:26+08:00"><meta property="article:tag" content="Blog"><meta property="og:image" content="https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp"><meta name=twitter:title content="Windows下使用Hugo与Github Pages部署博客网站"><meta name=twitter:description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta name=application-name content="FixIt"><meta name=apple-mobile-web-app-title content="FixIt"><meta name=theme-color data-light=#f8f8f8 data-dark=#252627 content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ title="Windows下使用Hugo与Github Pages部署博客网站 - Kissy's Blog"><link rel=alternate type=text/markdown href=https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/index.md title="Windows下使用Hugo与Github Pages部署博客网站 - Kissy's Blog"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Windows下使用Hugo与Github Pages部署博客网站","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/fengjin2333.github.io\/posts\/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99\/"},"genre":"posts","keywords":"Blog","wordcount":2383,"url":"https:\/\/fengjin2333.github.io\/posts\/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99\/","datePublished":"2025-01-23T21:01:26+08:00","dateModified":"2025-01-23T21:01:26+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Kissy"},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Kissy's Blog"><span class=header-title-text>Kissy's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class="menu-item active has-children"><a class=menu-link href=/posts/ title=Posts><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i><ul class=sub-menu><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/collections/ title=Collections><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden=true></i> 集合</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li></ul></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-thumbs-up fa-fw fa-sm" aria-hidden=true></i> 友链</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-comments fa-fw fa-sm" aria-hidden=true></i> 留言</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-quote-left fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Kissy's Blog"><span class=header-title-text>Kissy's Blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class="menu-item active"><span class=nested-item><a class=menu-link href=/posts/ title=Posts><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 文章</a>
+<i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/collections/ title=Collections><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden=true></i> 集合</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li></ul></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-thumbs-up fa-fw fa-sm" aria-hidden=true></i> 友链</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-comments fa-fw fa-sm" aria-hidden=true></i> 留言</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-quote-left fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item menu-system"><span class="menu-system-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></span></li></ul></nav></div></header><main class=container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=合集><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i>
+<span class=collection-name title=合集>建站小记</span>
+<span class=collection-count>1</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><span class=active title="Windows下使用Hugo与Github Pages部署博客网站">Windows下使用Hugo与Github Pages部署博客网站</span></li></ul><div class=collection-nav-simple><i class="fa-solid fa-angle-left fa-fw collection-nav-item text-secondary" aria-hidden=true></i><span class=text-secondary>1/1</span><i class="fa-solid fa-angle-right fa-fw collection-nav-item text-secondary" aria-hidden=true></i></div></nav></div></div></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Windows下使用Hugo与Github Pages部署博客网站</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+Kissy</span></span><span class=post-included-in>&nbsp;收录于 和 <a href=/collections/%E5%BB%BA%E7%AB%99%E5%B0%8F%E8%AE%B0/ class=post-collection title="合集 - 建站小记"><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i> 建站小记</a></span></div><div class=post-meta-line><span title="发布于 2025-01-23 21:01:26"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2025-01-23>2025-01-23</time></span>&nbsp;<span title="2383 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 2400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 5 分钟</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#1hugo环境搭建>1.Hugo环境搭建</a><ul><li><a href=#11前置准备>1.1前置准备</a></li><li><a href=#12常用命令>1.2常用命令</a><ul><li><a href=#121新建一个网站>1.2.1新建一个网站</a></li><li><a href=#122新建一个post>1.2.2新建一个post</a></li><li><a href=#123本地调试>1.2.3本地调试</a></li><li><a href=#124发布>1.2.4发布</a></li></ul></li></ul></li><li><a href=#2主题>2.主题</a><ul><li><a href=#21fixit安装>2.1FixIt安装</a></li><li><a href=#22配置>2.2配置</a></li></ul></li><li><a href=#3github-pages部署>3.GitHub Pages部署</a><ul><li><a href=#31pages仓库>3.1Pages仓库</a></li></ul></li><li><a href=#4github-actions自动化部署>4.GitHub Actions自动化部署</a><ul><li><a href=#41工作流>4.1工作流</a></li><li><a href=#42token>4.2Token</a></li></ul></li><li><a href=#5自定义网站>5.自定义网站</a><ul><li><a href=#51文章模板>5.1文章模板</a></li><li><a href=#52编辑网站菜单栏>5.2编辑网站菜单栏</a></li></ul></li><li><a href=#6插入图片>6.插入图片</a><ul><li><a href=#61存储方式>6.1存储方式</a><ul><li><a href=#611static>6.1.1/static</a></li><li><a href=#612page-bundle>6.1.2page bundle</a></li></ul></li><li><a href=#62尺寸和布局>6.2尺寸和布局</a></li></ul></li><li><a href=#参考链接>参考链接</a></li></ul></nav></div></div><div class=content id=content><p>由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz</p><h2 id=1hugo环境搭建 class=heading-element><span>1.Hugo环境搭建</span>
+<a href=#1hugo%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>建议选择Hugo.Extended</p><h3 id=11前置准备 class=heading-element><span>1.1前置准备</span>
+<a href=#11%e5%89%8d%e7%bd%ae%e5%87%86%e5%a4%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>参见<a href=https://gohugo.io/installation/windows/ target=_blank rel="external nofollow noopener noreferrer">Installation on Windows</a>, 需要Git，Go，Dart Sass环境</p><h3 id=12常用命令 class=heading-element><span>1.2常用命令</span>
+<a href=#12%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>使用<code>hugo version</code>命令查看是否安装成功</p><h4 id=121新建一个网站 class=heading-element><span>1.2.1新建一个网站</span>
+<a href=#121%e6%96%b0%e5%bb%ba%e4%b8%80%e4%b8%aa%e7%bd%91%e7%ab%99 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hugo new your-site-name</span></span></code></pre></td></tr></table></div></div><h4 id=122新建一个post class=heading-element><span>1.2.2新建一个post</span>
+<a href=#122%e6%96%b0%e5%bb%ba%e4%b8%80%e4%b8%aapost class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hugo new content posts/my-first-post.md</span></span></code></pre></td></tr></table></div></div><p>这将会根据/arcthetypes/下的模板(默认为default.md)生成md文件</p><h4 id=123本地调试 class=heading-element><span>1.2.3本地调试</span>
+<a href=#123%e6%9c%ac%e5%9c%b0%e8%b0%83%e8%af%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hugo server -D</span></span></code></pre></td></tr></table></div></div><p><code>-D</code>会将草稿也渲染</p><h4 id=124发布 class=heading-element><span>1.2.4发布</span>
+<a href=#124%e5%8f%91%e5%b8%83 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hugo </span></span></code></pre></td></tr></table></div></div><p>在<code>site</code>根目录下生成<code>public</code>文件夹</p><h2 id=2主题 class=heading-element><span>2.主题</span>
+<a href=#2%e4%b8%bb%e9%a2%98 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>本文使用的是<a href=https://github.com/hugo-fixit/FixIt target=_blank rel="external nofollow noopener noreferrer">FixIt</a></p><h3 id=21fixit安装 class=heading-element><span>2.1FixIt安装</span>
+<a href=#21fixit%e5%ae%89%e8%a3%85 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>将主题文件夹放于<code>/themes/</code>下即可,一般方法如下</p><ul><li>git clone</li><li>git submodule</li><li>hugo module</li></ul><h3 id=22配置 class=heading-element><span>2.2配置</span>
+<a href=#22%e9%85%8d%e7%bd%ae class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>应用主题需要设置hugo.toml的<code>theme</code>字段即可</p><p>一般主题都会有一个模板配置文件(夹),参考<a href=https://gohugo.io/getting-started/configuration/ target=_blank rel="external nofollow noopener noreferrer">Hugo Configuration</a>和<a href=https://fixit.lruihao.cn/zh-cn/documentation/getting-started/configuration/ target=_blank rel="external nofollow noopener noreferrer">配置FixIt</a></p><h2 id=3github-pages部署 class=heading-element><span>3.GitHub Pages部署</span>
+<a href=#3github-pages%e9%83%a8%e7%bd%b2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>参见<a href=https://pages.github.com/ target=_blank rel="external nofollow noopener noreferrer">Pages</a></p><h3 id=31pages仓库 class=heading-element><span>3.1Pages仓库</span>
+<a href=#31pages%e4%bb%93%e5%ba%93 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>主要是仓库名应为<code>owner-name.github.io</code></p><p>将<code>public</code>下的内容上传到该仓库,即可通过<code>https://owner's-name.github.io</code>访问</p><h2 id=4github-actions自动化部署 class=heading-element><span>4.GitHub Actions自动化部署</span>
+<a href=#4github-actions%e8%87%aa%e5%8a%a8%e5%8c%96%e9%83%a8%e7%bd%b2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>由于Pages库的可见性与网站可访问性一致.</p><p>所以在不希望公开源码的情况下,源码库和发布库可以分离,通过<code>Github Actions</code>实现.</p><h3 id=41工作流 class=heading-element><span>4.1工作流</span>
+<a href=#41%e5%b7%a5%e4%bd%9c%e6%b5%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>在网站目录下创建<code>.github/workflows/hugo.yaml</code>.</p><p>修改<code>env</code>中的个人信息, 再注意一下<code>HUGO_VERSION</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy Hugo site to Pages</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>workflow_dispatch</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>permissions</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>contents</span><span class=p>:</span><span class=w> </span><span class=l>write</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 推送目标仓库 格式 用户名/仓库名</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>TARGET_REPOSITORY_NAME</span><span class=p>:</span><span class=w> </span><span class=l>fengjin2333/fengjin2333.github.io</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 同步临时目录</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>CLONE_DIR</span><span class=p>:</span><span class=w> </span><span class=l>tmp_public</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 构建临时目录</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>BUILD_DIR</span><span class=p>:</span><span class=w> </span><span class=l>public</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 配置 Git 用户名</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>GIT_USERNAME</span><span class=p>:</span><span class=w> </span><span class=l>fengjin2333</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 配置 Git 邮箱</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>GIT_EMAIL</span><span class=p>:</span><span class=w> </span><span class=l>feng_jin233@outlook.com</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build-and-deploy</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>HUGO_VERSION</span><span class=p>:</span><span class=w> </span><span class=m>0.141.0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 1: 安装 Hugo CLI</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Hugo CLI</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+</span></span></span><span class=line><span class=cl><span class=sd>          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 2: 安装 Dart Sass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Dart Sass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>sudo snap install dart-sass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 3: 检出源码仓库</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Checkout</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=l>recursive</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 4: 使用 Hugo 构建站点</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build with Hugo</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>HUGO_CACHEDIR</span><span class=p>:</span><span class=w> </span><span class=l>${{ runner.temp }}/hugo_cache</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>HUGO_ENVIRONMENT</span><span class=p>:</span><span class=w> </span><span class=l>production</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>TZ</span><span class=p>:</span><span class=w> </span><span class=l>America/Los_Angeles</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          hugo \
+</span></span></span><span class=line><span class=cl><span class=sd>            --gc \
+</span></span></span><span class=line><span class=cl><span class=sd>            --minify \
+</span></span></span><span class=line><span class=cl><span class=sd>            --destination ${{ env.BUILD_DIR }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 5: 配置 Git 用户信息</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Git Config</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          git config --global user.email &#34;${{ env.GIT_EMAIL }}&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          git config --global user.name &#34;${{ env.GIT_USERNAME }}&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 6: 克隆 Pages 仓库</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Clone Pages repository</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          git clone --depth 1 https://${{ secrets.DEPLOYHUGO }}@github.com/${{ env.TARGET_REPOSITORY_NAME }}.git ${{ env.CLONE_DIR }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 7: 清空目标目录并复制构建结果</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Copy build output to Pages repository</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          rm -rf ${{ env.CLONE_DIR }}/*
+</span></span></span><span class=line><span class=cl><span class=sd>          cp -rf ${{ env.BUILD_DIR }}/* ${{ env.CLONE_DIR }}/
+</span></span></span><span class=line><span class=cl><span class=sd>          cd ${{ env.CLONE_DIR }}
+</span></span></span><span class=line><span class=cl><span class=sd>          echo &#34;${{ github.event.head_commit.message }} `date +%FT%T%z`&#34; &gt; _pub_time.html</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 步骤 8: 提交并推送更改到 Pages 仓库</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Commit and push changes</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          cd ${{ env.CLONE_DIR }}
+</span></span></span><span class=line><span class=cl><span class=sd>          git add .
+</span></span></span><span class=line><span class=cl><span class=sd>          git commit --message &#34;Update from source repository: ${{ github.event.head_commit.message }}&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          git push -f -q https://${{ secrets.DEPLOYHUGO }}@github.com/${{ env.TARGET_REPOSITORY_NAME }}.git main</span></span></span></code></pre></td></tr></table></div></div><h3 id=42token class=heading-element><span>4.2Token</span>
+<a href=#42token class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>由于我们需要操作另一个<code>repo</code>, 因此需要在源码仓库配置<code>Token</code>, 参见<a href=https://blog.baicai.me/article/2023/hugo_github_action_blog/ target=_blank rel="external nofollow noopener noreferrer">自动部署</a>.</p><p>注意替换</p><p><code>https://${{ secrets.DEPLOYHUGO }}@github.com/${{ env.TARGET_REPOSITORY_NAME }}.git</code></p><p>中的<code>DEPLOYHUGO</code>为<code>Token</code>名称.</p><h2 id=5自定义网站 class=heading-element><span>5.自定义网站</span>
+<a href=#5%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bd%91%e7%ab%99 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 id=51文章模板 class=heading-element><span>5.1文章模板</span>
+<a href=#51%e6%96%87%e7%ab%a0%e6%a8%a1%e6%9d%bf class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Hugo中有<a href=https://gohugo.io/content-management/front-matter/ target=_blank rel="external nofollow noopener noreferrer">Front Matter</a>这个概念,用于设置文章的创建(编辑)日期,标签,标题,合集等,和配置文件一样,可以使用<code>toml</code>,<code>yaml</code>,<code>json</code>格式,一般放在<code>.md</code>文件开头.</p><p>在<code>Front Matter</code>里还可以使用<a href=https://gohugo.io/content-management/shortcodes/ target=_blank rel="external nofollow noopener noreferrer">Shortcodes</a>,功能类似函数,可用于获取当前时间,文件名,网站名等.</p><p>为避免每次都手动编写,在<code>/archtypes/</code>下创建模板文件可以在<code>hugo new</code>时自动生成,根据文章类型有一套查找模板的逻辑,参见<a href=https://gohugo.io/content-management/archetypes/ target=_blank rel="external nofollow noopener noreferrer">Archtypes</a>.</p><h3 id=52编辑网站菜单栏 class=heading-element><span>5.2编辑网站菜单栏</span>
+<a href=#52%e7%bc%96%e8%be%91%e7%bd%91%e7%ab%99%e8%8f%9c%e5%8d%95%e6%a0%8f class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>hugo支持三种修改菜单的方式,详情参考<a href=https://gohugo.io/content-management/menus/ target=_blank rel="external nofollow noopener noreferrer">Menus</a>.</p><ul><li><p>hugo.toml</p></li><li><p>define automatically</p></li><li><p>front matter</p></li></ul><p>本文采用第一种,修改<code>hugo.toml</code>中的[menu]部分.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>menu</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;posts&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c># you can add extra information before the name (HTML format is supported), such as icons</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c># you can add extra information after the name (HTML format is supported), such as icons</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;文章&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/posts/&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c># title will be shown when you hover on this menu link</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    <span class=c># FixIt 0.2.14 | NEW add user-defined content to menu items</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=c># add css class to a specific menu item</span>
+</span></span><span class=line><span class=cl>      <span class=nx>class</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=c># whether set as a draft menu item whose function is similar to a draft post/page</span>
+</span></span><span class=line><span class=cl>      <span class=nx>draft</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>      <span class=c># FixIt 0.2.16 | NEW add fontawesome icon to a specific menu item</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-archive&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=c># FixIt 0.2.16 | NEW set menu item type, optional values: [&#34;mobile&#34;, &#34;desktop&#34;]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>type</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=c># FixIt 0.3.9 | NEW whether to show the submenu item divider line</span>
+</span></span><span class=line><span class=cl>      <span class=nx>divided</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;categories&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;posts&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;分类&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/categories&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-folder-tree&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;tags&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;posts&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;标签&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/tags&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-tags&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;collections&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;posts&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;集合&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/collections&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-layer-group&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;questbook&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;留言&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-comments&#34;</span>      
+</span></span><span class=line><span class=cl>  <span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>identifier</span> <span class=p>=</span> <span class=s2>&#34;friends&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pre</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;友链&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>pageRef</span> <span class=p>=</span> <span class=s2>&#34;/&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>title</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>weight</span> <span class=p>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>.</span><span class=nx>params</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=nx>icon</span> <span class=p>=</span> <span class=s2>&#34;fa-solid fa-thumbs-up&#34;</span></span></span></code></pre></td></tr></table></div></div><p>注意以下几个字段:</p><ul><li><p><code>parent</code>:指定父级菜单</p></li><li><p><code>pageRef</code>:指定相对于/content/的路径, 如<code>/tags</code></p></li><li><p><code>name</code>:页面显示的名称</p></li></ul><p>可以使用hugo的分类机制<a href=https://gohugo.io/content-management/taxonomies/ target=_blank rel="external nofollow noopener noreferrer">Taxonomies</a></p><p>在<code>hugo.toml</code>中设置的分类, 可以在文章的<code>front matter</code>中应用, 同时在发布时会自动生成对应的文件夹, 因此<code>[menu]</code>中可以设置对应的<code>pageRef</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>taxonomies</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=nx>category</span> <span class=p>=</span> <span class=s2>&#34;categories&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>tag</span> <span class=p>=</span> <span class=s2>&#34;tags&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>collection</span> <span class=p>=</span> <span class=s2>&#34;collections&#34;</span></span></span></code></pre></td></tr></table></div></div><h2 id=6插入图片 class=heading-element><span>6.插入图片</span>
+<a href=#6%e6%8f%92%e5%85%a5%e5%9b%be%e7%89%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 id=61存储方式 class=heading-element><span>6.1存储方式</span>
+<a href=#61%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li><p>/static/</p></li><li><p>page bundle</p></li></ul><h4 id=611static class=heading-element><span>6.1.1/static</span>
+<a href=#611static class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>将图片存放在<code>/static</code>下, 发布时就会存放到<code>/public</code>下</p><p>但是这要求路径为<code>/img.png</code>, 无法在编辑器下查看</p><h4 id=612page-bundle class=heading-element><span>6.1.2page bundle</span>
+<a href=#612page-bundle class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>参考<a href=https://gohugo.io/content-management/image-processing/ target=_blank rel="external nofollow noopener noreferrer">Image processing</a></p><p>建立Page bundle, 将图片作为Page Resource存放</p><p>以该文章文件夹为根目录, 通过<code>img.png</code>即可引用</p><p><img loading=lazy src=/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp alt=test1 srcset="/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp?size=small, /posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp?size=medium 1.5x, /posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/cover.webp?size=large 2x" data-title=test1 style="--width:1720px;--aspect-ratio:1720 / 722;background:url(/images/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e)'></p><h3 id=62尺寸和布局 class=heading-element><span>6.2尺寸和布局</span>
+<a href=#62%e5%b0%ba%e5%af%b8%e5%92%8c%e5%b8%83%e5%b1%80 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h2 id=参考链接 class=heading-element><span>参考链接</span>
+<a href=#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p><a href=https://www.haoyep.com/posts/windows-hugo-blog-github/ target=_blank rel="external nofollow noopener noreferrer">Windows下使用hugo和Github Pages配置博客</a></p><p><a href=https://tingxuanr.github.io/note/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ target=_blank rel="external nofollow noopener noreferrer">使用hugo搭建博客网站</a></p><p><a href=https://blog.eimoon.com/p/learn-hugo-blog-building-from-beginner-to-advanced/ target=_blank rel="external nofollow noopener noreferrer">手把手学习 Hugo 博客的搭建:从入门到进阶</a></p><p><a href=https://zhuanlan.zhihu.com/p/57361697 target=_blank rel="external nofollow noopener noreferrer">如何利用 GitHub Pages 和 Hugo 轻松搭建个人博客？</a></p><p><a href=https://blog.baicai.me/article/2023/hugo_github_action_blog/ target=_blank rel="external nofollow noopener noreferrer">Hugo + GitHub Action + Github Pages，搭建博客自动发布</a></p><p><a href=https://wangloo.github.io/posts/hugo/hugo_image/ target=_blank rel="external nofollow noopener noreferrer">Hugo 引用图片</a></p><p><a href=https://fixit.lruihao.cn/zh-cn/ target=_blank rel="external nofollow noopener noreferrer">FixIt主题</a></p><p><a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreferrer">Hugo</a></p></div><div class=collection-card><div class="collection-title text-secondary">收录于 <a href=/collections/%E5%BB%BA%E7%AB%99%E5%B0%8F%E8%AE%B0/><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i> <span>合集・建站小记</span></span></a> 1</div><div class=collection-nav></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2025-01-23 21:01:26">更新于 2025-01-23&nbsp;</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 X" data-sharer=twitter data-url=https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ data-title="Windows下使用Hugo与Github Pages部署博客网站" data-hashtags=Blog><i class="fa-brands fa-x-twitter fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ data-hashtag=Blog><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://fengjin2333.github.io/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ data-title="Windows下使用Hugo与Github Pages部署博客网站"><i class="fa-brands fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/blog/ class=post-tag title="标签 - Blog">Blog</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav></div></div></article><aside class=toc id=toc-auto aria-label=目录><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside></main><footer class=footer><div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.141.0"><img class=hugo-icon src=/images/hugo.min.svg alt="Hugo logo"> Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/hugo-fixit/FixIt target=_blank rel=external title="FixIt v0.3.17-8b402129"><img class=fixit-icon src=/images/fixit.min.svg alt="FixIt logo"> FixIt</a></div><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright fa-fw" aria-hidden=true></i>
+<span itemprop=copyrightYear>2025</span><span class=author itemprop=copyrightHolder>
+<a href=/>Kissy</a></span></div></div></footer></div><div class=widgets><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role=button aria-label=回到顶部><i class="fa-solid fa-arrow-up fa-fw" aria-hidden=true></i><span class="variant-numeric d-none">0%</span></div></div><div id=mask></div><noscript><div class=noscript-warning>该网站在启用 JavaScript 的情况下效果最佳。</div></noscript></div><link rel=preload href=/lib/katex/katex.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/katex/katex.min.css></noscript><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/katex/katex.min.js defer></script><script src=/lib/katex/auto-render.min.js defer></script><script src=/lib/katex/copy-tex.min.js defer></script><script src=/lib/katex/mhchem.min.js defer></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script>window.config={code:{copyTitle:"复制到剪贴板",editLockTitle:"锁定可编辑代码块",editUnLockTitle:"解锁可编辑代码块",editable:!0,maxShownLines:10},comment:{enable:!1},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验。"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},version:"v0.3.17-8b402129"}</script><script src=/js/theme.min.js defer></script></body></html>

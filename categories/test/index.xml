@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test - 分类 - Kissy&#39;s Blog</title>
+    <link>http://localhost:1313/categories/test/</link>
+    <description>Kissy&#39;s Blog</description>
+    <generator>Hugo 0.141.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 23 Jan 2025 21:01:26 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows下使用Hugo与Github Pages部署博客网站</title>
+      <link>http://localhost:1313/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Thu, 23 Jan 2025 21:01:26 +0800</pubDate>
+      <guid>http://localhost:1313/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</guid>
+      <category domain="http://localhost:1313/categories/test/">Test</category>
+      <description>&lt;p&gt;此处内容将会出现在摘要（summary）里&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
