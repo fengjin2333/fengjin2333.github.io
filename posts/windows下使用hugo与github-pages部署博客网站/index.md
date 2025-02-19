@@ -69,6 +69,8 @@ hugo
 
 所以在不希望公开源码的情况下,源码库和发布库可以分离,通过`Github Actions`实现.
 
+最终的效果是本地源码push上源码库, 就会自动build并发布到Pages
+
 ### 4.1工作流
 在网站目录下创建`.github/workflows/hugo.yaml`.
 
@@ -292,6 +294,22 @@ hugo支持三种修改菜单的方式,详情参考[Menus](https://gohugo.io/cont
   collection = &#34;collections&#34;
 ```
 
+### 5.3友情链接
+
+参见[FixIt内容管理](https://fixit.lruihao.cn/zh-cn/documentation/content-management/introduction/#%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C)
+
+设置`friends.md`中`front matter`的`layout`字段为`friends`,
+
+ 并创建`site/data/friends.yml`, 内容格式如下
+ ```yml
+# 朋友/站点信息例子
+- nickname: 朋友名字
+  avatar: 朋友头像
+  url: 站点链接
+  description: 对朋友或其站点的说明
+ ```
+
+
 ## 6.插入图片
 
 ### 6.1存储方式
@@ -336,7 +354,6 @@ hugo支持三种修改菜单的方式,详情参考[Menus](https://gohugo.io/cont
 [FixIt主题](https://fixit.lruihao.cn/zh-cn/)
 
 [Hugo](https://gohugo.io/)
-
 
 
 

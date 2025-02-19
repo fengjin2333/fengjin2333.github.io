@@ -1,0 +1,322 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>VSCode配置C++环境 - Kissy's Blog</title><meta name=author content="Kissy">
+<meta name=description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz
+"><meta name=keywords content='C++,VSCode'><meta itemprop=name content="VSCode配置C++环境"><meta itemprop=description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta itemprop=datePublished content="2025-02-19T15:46:32+08:00"><meta itemprop=dateModified content="2025-02-19T15:46:32+08:00"><meta itemprop=wordCount content="3428"><meta itemprop=keywords content="C++,VSCode"><meta property="og:url" content="https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/"><meta property="og:site_name" content="Kissy's Blog"><meta property="og:title" content="VSCode配置C++环境"><meta property="og:description" content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-19T15:46:32+08:00"><meta property="article:modified_time" content="2025-02-19T15:46:32+08:00"><meta property="article:tag" content="C++"><meta property="article:tag" content="VSCode"><meta name=twitter:card content="summary"><meta name=twitter:title content="VSCode配置C++环境"><meta name=twitter:description content="由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz"><meta name=application-name content="FixIt"><meta name=apple-mobile-web-app-title content="FixIt"><meta name=theme-color data-light=#f8f8f8 data-dark=#252627 content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/ title="VSCode配置C++环境 - Kissy's Blog"><link rel=prev type=text/html href=https://fengjin2333.github.io/friends/ title=Friends><link rel=alternate type=text/markdown href=https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/index.md title="VSCode配置C++环境 - Kissy's Blog"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"VSCode配置C++环境","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/fengjin2333.github.io\/posts\/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83\/"},"genre":"posts","keywords":"C\u002b\u002b, VSCode","wordcount":3428,"url":"https:\/\/fengjin2333.github.io\/posts\/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83\/","datePublished":"2025-02-19T15:46:32+08:00","dateModified":"2025-02-19T15:46:32+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Kissy"},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Kissy's Blog"><span class=header-title-text>Kissy's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class="menu-item active has-children"><a class=menu-link href=/posts/ title=Posts><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i><ul class=sub-menu><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/collections/ title=Collections><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden=true></i> 集合</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li></ul></li><li class=menu-item><a class=menu-link href=/friends/ title=Friends><i class="fa-solid fa-thumbs-up fa-fw fa-sm" aria-hidden=true></i> 友链</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-comments fa-fw fa-sm" aria-hidden=true></i> 留言</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-quote-left fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Kissy's Blog"><span class=header-title-text>Kissy's Blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class="menu-item active"><span class=nested-item><a class=menu-link href=/posts/ title=Posts><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 文章</a>
+<i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/collections/ title=Collections><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden=true></i> 集合</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li></ul></li><li class=menu-item><a class=menu-link href=/friends/ title=Friends><i class="fa-solid fa-thumbs-up fa-fw fa-sm" aria-hidden=true></i> 友链</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-comments fa-fw fa-sm" aria-hidden=true></i> 留言</a></li><li class=menu-item><a class=menu-link href=/ title="Kissy's Blog"><i class="fa-solid fa-quote-left fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item menu-system"><span class="menu-system-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></span></li></ul></nav></div></header><main class=container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=合集><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i>
+<span class=collection-name title=合集>配环境</span>
+<span class=collection-count>1</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><span class=active title=VSCode配置C++环境>VSCode配置C++环境</span></li></ul><div class=collection-nav-simple><i class="fa-solid fa-angle-left fa-fw collection-nav-item text-secondary" aria-hidden=true></i><span class=text-secondary>1/1</span><i class="fa-solid fa-angle-right fa-fw collection-nav-item text-secondary" aria-hidden=true></i></div></nav></div></div></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>VSCode配置C++环境</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+Kissy</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/blog/ class=post-category title="分类 - Blog"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Blog</a> 和 <a href=/collections/%E9%85%8D%E7%8E%AF%E5%A2%83/ class=post-collection title="合集 - 配环境"><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i> 配环境</a></span></div><div class=post-meta-line><span title="发布于 2025-02-19 15:46:32"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2025-02-19>2025-02-19</time></span>&nbsp;<span title="3428 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 3500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 7 分钟</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#1-vscode搭建c开发环境>1. VSCode搭建C++开发环境</a><ul><li><a href=#11-前置准备>1.1 前置准备</a></li><li><a href=#12-问题>1.2 问题</a></li></ul></li><li><a href=#2-cmake>2. CMake</a><ul><li><a href=#21-前置准备>2.1 前置准备</a></li><li><a href=#22-最简实践>2.2 最简实践</a><ul><li><a href=#221命令行>2.2.1命令行</a></li><li><a href=#222-vscode-cmake-tool>2.2.2 VSCode CMake Tool</a></li></ul></li><li><a href=#23-cmakeliststxt>2.3 CMakeLists.txt</a></li></ul></li><li><a href=#3-vscode--wsl>3. VSCode + WSL</a><ul><li><a href=#31-前置准备>3.1 前置准备</a></li><li><a href=#32-最简实践>3.2 最简实践</a></li></ul></li><li><a href=#参考链接>参考链接</a></li></ul></nav></div></div><div class=content id=content><p>由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz</p><h2 id=1-vscode搭建c开发环境 class=heading-element><span>1. VSCode搭建C++开发环境</span>
+<a href=#1-vscode%e6%90%ad%e5%bb%bac%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>大学里其实没怎么认真配过VSCode开发环境, 以前写.c基本都是单文件的习题小练习, 跟着网上教程走一遍, 后面不怎么写了</p><p>现在是需要用C<ins>的三方库了, 回来配一下环境, 顺便熟悉一下C</ins>, 以后上班八成要用</p><h3 id=11-前置准备 class=heading-element><span>1.1 前置准备</span>
+<a href=#11-%e5%89%8d%e7%bd%ae%e5%87%86%e5%a4%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>参见<a href=https://code.visualstudio.com/docs/cpp/config-mingw target=_blank rel="external nofollow noopener noreferrer">GCC on Windows</a>, 按照步骤来就行, 可以与中文博客对照</p><p>主要就是安装VSCode, 安装MinGW(GCC在Windows上的版本), 安装VSCode的C/C++插件</p><h3 id=12-问题 class=heading-element><span>1.2 问题</span>
+<a href=#12-%e9%97%ae%e9%a2%98 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>事情一直到单文件编译调试都很顺利</p><p>这里先提一下VSCode是如何构建C++开发流程的:</p><p>我们知道,VSC只是集成了一下GCC和GDB罢了,免去了你在命令行手动编译,链接的过程</p><p>博客一般都会提到初次build时,会提示你选择compiler(gcc, g++, Clang等), 然后自动生成<code>.vscode/tasks.json</code></p><p>形如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tasks&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;cppbuild&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;label&#34;</span><span class=p>:</span> <span class=s2>&#34;C/C++: g++.exe build active file&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;C:\\msys64\\ucrt64\\bin\\g++.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;args&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-fdiagnostics-color=always&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-g&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;${file}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;-o&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;${fileDirname}\\${fileBasenameNoExtension}.exe&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;options&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;cwd&#34;</span><span class=p>:</span> <span class=s2>&#34;${fileDirname}&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;problemMatcher&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;$gcc&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;group&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;kind&#34;</span><span class=p>:</span> <span class=s2>&#34;build&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;isDefault&#34;</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;detail&#34;</span><span class=p>:</span> <span class=s2>&#34;Task generated by Debugger.&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;version&#34;</span><span class=p>:</span> <span class=s2>&#34;2.0.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div></div><p>不难看出, 这就类似一个脚本配置, 设定好cmd和args, 再自动build .cpp文件</p><p>自然的, 要编译链接多文件, 做一点小小改动即可&mldr;吗?</p><p>本来该是这样的 orz</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;version&#34;</span><span class=p>:</span> <span class=s2>&#34;2.0.0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;tasks&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;cppbuild&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//&#34;type&#34;: &#34;shell&#34;,
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nt>&#34;label&#34;</span><span class=p>:</span> <span class=s2>&#34;GCC Compiler&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;C:\\msys64\\ucrt64\\bin\\gcc.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;shell&#34;</span><span class=p>:</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;executable&#34;</span><span class=p>:</span> <span class=s2>&#34;powershell.exe&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;args&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;-fdiagnostics-color=always&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;-g&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=c1>//&#34;${file}&#34;,
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=s2>&#34;${workspaceFolder}\\*.cpp&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;-o&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=c1>//&#34;${fileDirname}\\${fileBasenameNoExtension}.exe&#34;
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=s2>&#34;${workspaceFolder}\\AnyNameYouLike.exe&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>],</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;options&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;cwd&#34;</span><span class=p>:</span> <span class=s2>&#34;${workspaceFolder}&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;problemMatcher&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;$gcc&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>],</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;group&#34;</span><span class=p>:</span> <span class=s2>&#34;build&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;detail&#34;</span><span class=p>:</span> <span class=s2>&#34;compiler: C:\\msys64\\ucrt64\\bin\\gcc.exe&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div></div><p>我们用通配符指定所有<code>.cpp</code>文件, 这不就大功告成了?</p><p>然而实际build时会报错</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> *  Executing task: GCC Compiler 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Starting build...
+</span></span><span class=line><span class=cl>cmd /c chcp 65001&gt;nul <span class=o>&amp;&amp;</span> C:<span class=se>\m</span>sys64<span class=se>\u</span>crt64<span class=se>\b</span>in<span class=se>\g</span>cc.exe -fdiagnostics-color<span class=o>=</span>always -g C:<span class=se>\U</span>sers<span class=se>\f</span>engjin<span class=se>\c</span>ppenv<span class=se>\*</span>.cpp -o C:<span class=se>\U</span>sers<span class=se>\f</span>engjin<span class=se>\c</span>ppenv<span class=se>\t</span>est.exe
+</span></span><span class=line><span class=cl>cc1plus.exe: fatal error: C:<span class=se>\U</span>sers<span class=se>\f</span>engjin<span class=se>\c</span>ppenv<span class=se>\*</span>.cpp: Invalid argument
+</span></span><span class=line><span class=cl>compilation terminated.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Build finished with error<span class=o>(</span>s<span class=o>)</span>.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> *  The terminal process failed to launch <span class=o>(</span><span class=nb>exit</span> code: -1<span class=o>)</span>. 
+</span></span><span class=line><span class=cl> *  Terminal will be reused by tasks, press any key to close it. </span></span></code></pre></td></tr></table></div></div><p>这个通配符<code>*</code>真的就以<code>*</code>的形式出现在命令里了, 没有展开</p><p>为了解决这个问题, 我在国内外疯狂检索,狠狠拷打AI, 然而没有令人信服的方案</p><p>一是出现这个bug很少;</p><p>二来少有的回复或者无法解决, 或者直接建议别用睿智tasks.json弄多文件了, 直接上CMake/VS</p><p>记录一下我尝试过的方法:</p><ol><li>使用不同形式的通配符: <code>//*.cpp</code> , <code>//**.cpp</code>, <code>\*.cpp</code>, <code>\\*.cpp</code></li><li>修改<code>type</code>属性为<code>shell</code></li><li>修改<code>command</code>属性为先调pwsh.exe,再拼接gcc编译</li><li>修改<code>command</code>的编译器为<code>g++</code>, 同时修改C/C++插件的设置<code>c_cpp_properties.json</code>, <code>compilerPath</code>也改成<code>g++</code></li></ol><p>&mldr;都不行orz</p><h2 id=2-cmake class=heading-element><span>2. CMake</span>
+<a href=#2-cmake class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>人不能在一棵树上吊死, 既然还有其他多文件编译的方案, 先去试试</p><h3 id=21-前置准备 class=heading-element><span>2.1 前置准备</span>
+<a href=#21-%e5%89%8d%e7%bd%ae%e5%87%86%e5%a4%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>去官网下载安装一下<a href=https://cmake.org/ target=_blank rel="external nofollow noopener noreferrer">CMake</a>即可</p><h3 id=22-最简实践 class=heading-element><span>2.2 最简实践</span>
+<a href=#22-%e6%9c%80%e7%ae%80%e5%ae%9e%e8%b7%b5 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>笔者学习CMake时总觉得不爽利, 有种迟滞感</p><p>自己分析了一下, 感觉是没有将VSCode插件方式和命令行方式分清楚导致的, 毕竟插件就是为简化命令行而被开发的</p><p>CMake的教程, 大多只是简短给出一个作者的最简实践
+由于时间, ,版本和一些忽略未提及的配置原因, 并不能在笔者这里完美复刻, 导致我觉得别扭, 没学明白一样</p><p>于是, 我决定分开来学, 先学明白命令行的最简实践, 再迁移到插件上去</p><p>在这一部分差不多要写完的时候, 又翻到一篇博客, 思路类似, 写的不错, 值得参考
+<a href=https://www.cnblogs.com/dapenson/p/17135239.html target=_blank rel="external nofollow noopener noreferrer">CMake在Windows环境下Visual Studio Code的使用</a></p><h4 id=221命令行 class=heading-element><span>2.2.1命令行</span>
+<a href=#221%e5%91%bd%e4%bb%a4%e8%a1%8c class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>主要参考这一篇<a href=https://zhuanlan.zhihu.com/p/576408483 target=_blank rel="external nofollow noopener noreferrer">Windows下CMake编译环境搭建</a></p><p>创建<code>CMakeLists.txt</code>, <code>src/</code>, <code>build/</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>cmake_minimum_required(VERSION 3.5.0)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>project(CppEnv VERSION 0.1.0 LANGUAGES C CXX)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>add_executable(CppEnv src/main.cpp)</span></span></code></pre></td></tr></table></div></div><p><code>cd</code>到<code>build</code>下面执行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cmake .. -G “MinGW Makefiles”</span></span></code></pre></td></tr></table></div></div><p>使用<code>..</code>是因为<code>CMakeLists.txt</code>在上一级文件夹,
+使用<code>-G "MinGW Makefiles"</code> 指定生成器. 告诉 CMake 生成与 MinGW 编译器和 Make 工具兼容的 Makefile 文件。</p><p>笔者在VSCode里直接cmake使用的似乎是微软的方案构建, 出现很多奇怪的文件, 对于初学很不友好, 分散注意力.</p><h4 id=222-vscode-cmake-tool class=heading-element><span>2.2.2 VSCode CMake Tool</span>
+<a href=#222-vscode-cmake-tool class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>参考<a href=https://code.visualstudio.com/docs/cpp/cmake-quickstart target=_blank rel="external nofollow noopener noreferrer">cmake-quickstart</a>
+<code>Ctrl+Shift+P</code>调出命令窗口，<code>CMake Quick Start</code>逐步进行</p><p>注意最后有一步<code>Add a New Preset</code>, 为你的项目生成一个<code>CMakePresets.json</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>Preset 允许我们预先定义好不同的构建配置，包括：
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>生成器（Generator）： 例如 &#34;MinGW Makefiles&#34;、&#34;Visual Studio 17 2022&#34; 等。
+</span></span><span class=line><span class=cl>构建类型（CMAKE_BUILD_TYPE）： 例如 Debug、Release 等。
+</span></span><span class=line><span class=cl>编译器（CMAKE_CXX_COMPILER）： 例如 g++.exe、clang++.exe 等。
+</span></span><span class=line><span class=cl>其他构建选项： 例如编译标志、链接库等。</span></span></code></pre></td></tr></table></div></div><p>示例如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;version&#34;</span><span class=p>:</span> <span class=mi>8</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;configurePresets&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;GCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;displayName&#34;</span><span class=p>:</span> <span class=s2>&#34;GCC in Debug Mode&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Using compilers: C = C:\\msys64\\ucrt64\\bin\\gcc.exe, CXX = C:\\msys64\\ucrt64\\bin\\g++.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;generator&#34;</span><span class=p>:</span> <span class=s2>&#34;MinGW Makefiles&#34;</span><span class=p>,</span>	
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;binaryDir&#34;</span><span class=p>:</span> <span class=s2>&#34;${sourceDir}/out/build/${presetName}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cacheVariables&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;CMAKE_INSTALL_PREFIX&#34;</span><span class=p>:</span> <span class=s2>&#34;${sourceDir}/out/install/${presetName}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;CMAKE_C_COMPILER&#34;</span><span class=p>:</span> <span class=s2>&#34;C:/msys64/ucrt64/bin/gcc.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;CMAKE_CXX_COMPILER&#34;</span><span class=p>:</span> <span class=s2>&#34;C:/msys64/ucrt64/bin/g++.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;CMAKE_BUILD_TYPE&#34;</span><span class=p>:</span> <span class=s2>&#34;Debug&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div></div><h3 id=23-cmakeliststxt class=heading-element><span>2.3 CMakeLists.txt</span>
+<a href=#23-cmakeliststxt class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>直接来一个示例说明
+好的，这是一个以初学者常用命令为例，并添加注释的 <code>CMakeLists.txt</code> 文件示例。注释会直接写在文件里，方便你理解每一步的作用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cmake data-lang=cmake><span class=line><span class=cl><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>3.10</span><span class=p>)</span> <span class=c># CMake 的最低版本要求，通常项目开始就写上
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 项目基本设置 ##
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>project</span><span class=p>(</span><span class=s>MyProject</span><span class=p>)</span> <span class=c># 定义项目名称，这里是 &#34;MyProject&#34;, 会影响生成的可执行文件名等
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 设置 C++ 标准 (可选，但推荐) ##
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>set</span><span class=p>(</span><span class=s>CMAKE_CXX_STANDARD</span> <span class=s>14</span><span class=p>)</span> <span class=c># 设置 C++ 标准为 C++14，也可以是 11, 17, 20 等
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>set</span><span class=p>(</span><span class=s>CMAKE_CXX_STANDARD_REQUIRED</span> <span class=s>ON</span><span class=p>)</span> <span class=c># 要求必须使用指定的 C++ 标准
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>set</span><span class=p>(</span><span class=s>CMAKE_CXX_EXTENSIONS</span> <span class=s>OFF</span><span class=p>)</span> <span class=c># 关闭编译器特定的扩展
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 添加源文件 ##
+</span></span></span><span class=line><span class=cl><span class=c># 方法一:  显式列出源文件 (当源文件不多时推荐)
+</span></span></span><span class=line><span class=cl><span class=c># add_executable(my_program main.cpp utils.cpp)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c># 方法二: 使用 file(GLOB) 自动查找源文件 (适用于源文件较多的情况，但注意新增文件后可能需要重新运行 CMake)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>file</span><span class=p>(</span><span class=s>GLOB</span> <span class=s>SOURCES</span> <span class=s2>&#34;*.cpp&#34;</span><span class=p>)</span> <span class=c># 查找当前目录下所有 .cpp 文件，并存放到 SOURCES 变量中
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>add_executable</span><span class=p>(</span><span class=s>my_program</span> <span class=o>${</span><span class=nv>SOURCES</span><span class=o>}</span><span class=p>)</span> <span class=c># 使用 SOURCES 变量里的源文件来创建名为 my_program 的可执行文件
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 添加头文件包含目录 (如果你的头文件不在标准位置) ##
+</span></span></span><span class=line><span class=cl><span class=c># 如果你的头文件都放在与源文件相同的目录，或者在系统标准目录，通常不需要手动添加
+</span></span></span><span class=line><span class=cl><span class=c># 如果你的头文件放在例如 &#34;include&#34; 目录下，就需要添加
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>include_directories</span><span class=p>(</span><span class=s>include</span><span class=p>)</span> <span class=c># 添加当前目录下的 &#34;include&#34; 目录作为头文件搜索路径
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 链接库 (如果你的程序需要链接外部库) ##
+</span></span></span><span class=line><span class=cl><span class=c># 例如，如果你的程序需要链接一个名为 &#34;mylib&#34; 的库 (假设这个库已经安装在系统里)
+</span></span></span><span class=line><span class=cl><span class=c># target_link_libraries(my_program mylib) # 将 &#34;mylib&#34; 链接到 &#34;my_program&#34; 可执行文件
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c># 如果你需要链接特定路径下的库文件，可以使用绝对路径或相对路径
+</span></span></span><span class=line><span class=cl><span class=c># 假设 &#34;mylib.a&#34; 或 &#34;mylib.so&#34; 在 &#34;lib&#34; 目录下
+</span></span></span><span class=line><span class=cl><span class=c># target_link_libraries(my_program lib/mylib.a) # 链接静态库
+</span></span></span><span class=line><span class=cl><span class=c># target_link_libraries(my_program lib/mylib.so) # 链接动态库 (共享库)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 添加编译选项 (可选) ##
+</span></span></span><span class=line><span class=cl><span class=c># 例如，添加 -Wall 和 -Wextra 警告选项
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>target_compile_options</span><span class=p>(</span><span class=s>my_program</span> <span class=s>PRIVATE</span> <span class=s>-Wall</span> <span class=s>-Wextra</span><span class=p>)</span> <span class=c># PRIVATE 表示这些选项只对 my_program 生效
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 安装目标 (可选，如果你想将生成的可执行文件安装到指定位置) ##
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>install</span><span class=p>(</span><span class=s>TARGETS</span> <span class=s>my_program</span> <span class=c># 指定要安装的目标，这里是可执行文件 my_program
+</span></span></span><span class=line><span class=cl><span class=c></span>        <span class=s>DESTINATION</span> <span class=s>bin</span><span class=p>)</span> <span class=c># 指定安装路径，这里是 &#34;bin&#34; 目录，相对于安装前缀 (通常是 /usr/local/bin 或 /usr/bin)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## (更高级) 添加子目录 (如果你的项目比较复杂，有多个子模块) ##
+</span></span></span><span class=line><span class=cl><span class=c># add_subdirectory(src) # 添加名为 &#34;src&#34; 的子目录，CMake 会去 src 目录下寻找 CMakeLists.txt
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 更多功能可以通过添加命令来实现，例如：
+</span></span></span><span class=line><span class=cl><span class=c># - 定义编译宏: target_compile_definitions()
+</span></span></span><span class=line><span class=cl><span class=c># - 设置源文件分组 (在 IDE 中显示): set_source_files_properties()
+</span></span></span><span class=line><span class=cl><span class=c># - 自定义构建步骤: add_custom_command(), add_custom_target()
+</span></span></span><span class=line><span class=cl><span class=c># - 测试: enable_testing(), add_test()
+</span></span></span><span class=line><span class=cl><span class=c># - 打包: include(CPack), cpack()  (需要配置 CPack 相关变量)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c># 这是一个基础的 CMakeLists.txt 示例，你可以根据你的项目需求逐步添加更多功能。
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=err>#</span> <span class=err>记住，CMake</span> <span class=err>的强大之处在于它的灵活性和可扩展性。</span></span></span></code></pre></td></tr></table></div></div><p><strong>这个 <code>CMakeLists.txt</code> 文件的主要功能包括:</strong></p><ol><li><strong>指定 CMake 最低版本:</strong> <code>cmake_minimum_required(VERSION 3.10)</code> 确保使用的 CMake 版本不会过低。</li><li><strong>定义项目名称:</strong> <code>project(MyProject)</code> 为你的项目命名。</li><li><strong>设置 C++ 标准:</strong> <code>set(CMAKE_CXX_STANDARD ...)</code> 指定项目使用的 C++ 语言标准 (可选但推荐)。</li><li><strong>添加源文件:</strong><ul><li>使用 <code>file(GLOB SOURCES "*.cpp")</code> 自动查找 <code>.cpp</code> 源文件。</li><li>使用 <code>add_executable(my_program ${SOURCES})</code> 创建名为 <code>my_program</code> 的可执行文件。</li></ul></li><li><strong>添加头文件包含目录:</strong> <code>include_directories(include)</code> 如果你的头文件放在 &ldquo;include&rdquo; 目录下。</li><li><strong>链接库:</strong> <code>target_link_libraries(my_program ...)</code> 如果你的程序需要链接外部库。</li><li><strong>添加编译选项:</strong> <code>target_compile_options(my_program ...)</code> 例如添加警告选项。</li><li><strong>安装目标:</strong> <code>install(TARGETS my_program DESTINATION bin)</code> 将生成的可执行文件安装到 <code>bin</code> 目录。</li><li><strong>(提及) 添加子目录:</strong> <code>add_subdirectory(src)</code> 用于组织更复杂的项目结构。</li></ol><h2 id=3-vscode--wsl class=heading-element><span>3. VSCode + WSL</span>
+<a href=#3-vscode--wsl class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 id=31-前置准备 class=heading-element><span>3.1 前置准备</span>
+<a href=#31-%e5%89%8d%e7%bd%ae%e5%87%86%e5%a4%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>安装 Windows SubSystem for Linux 和一个Unbuntu, VS Code安装WSL Extension</p><p>参考[Using C++ and WSL in VS Code](<a href=https://code.visualstudio.com/docs/cpp/config-wsl target=_blank rel="external nofollow noopener noreferrer">Using C++ and WSL in VS Code</a>)</p><h3 id=32-最简实践 class=heading-element><span>3.2 最简实践</span>
+<a href=#32-%e6%9c%80%e7%ae%80%e5%ae%9e%e8%b7%b5 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>可以参考<a href=https://zhuanlan.zhihu.com/p/672745106 target=_blank rel="external nofollow noopener noreferrer">Windows+WSL+CMake+VSCode: 个人认为运行调试C++小项目的最佳配置 - 知乎</a></p><p>其他部分其实和Windows下一般无二, 你需要编译器(gcc), 调试器(gdb), 构建工具(CMake), VS Code的各种插件(C/C++ Extension Pack).</p><p>需要额外做的, 是在wsl中的<code>workplaceFolder</code>以VS Code打开, <code>code .</code></p><p><img loading=lazy src=C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSL%e6%89%93%e5%bc%80VSCode.png alt=C:\Users\fengjin\OneDrive\Hugo\try\content\posts\VSCode-C++\WSL打开VSCode.png srcset="C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSL%e6%89%93%e5%bc%80VSCode.png?size=small, C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSL%e6%89%93%e5%bc%80VSCode.png?size=medium 1.5x, C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSL%e6%89%93%e5%bc%80VSCode.png?size=large 2x" data-title=C:\Users\fengjin\OneDrive\Hugo\try\content\posts\VSCode-C++\WSL打开VSCode.png class="suffix-invalid suffix-invalid__small suffix-invalid__large" style="background:url(/images/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e)'></p><p>WSL中只是装了VS Code 的Server, Windows宿主机的VS Code远程连接到Server.</p><p>所以WSL即使没有图形化桌面也有与Windows下一般无二的体验(更好, 因为你其实在Linux下).</p><p>但是WSL的插件和宿主机的是独立的, 需要重新装一下</p><p><img loading=lazy src=C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSLVSCode%e6%8f%92%e4%bb%b6.png alt=WSLVSCode插件 srcset="C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSLVSCode%e6%8f%92%e4%bb%b6.png?size=small, C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSLVSCode%e6%8f%92%e4%bb%b6.png?size=medium 1.5x, C:%5cUsers%5cfengjin%5cOneDrive%5cHugo%5ctry%5ccontent%5cposts%5cVSCode-C++%5cWSLVSCode%e6%8f%92%e4%bb%b6.png?size=large 2x" data-title=WSLVSCode插件 class="suffix-invalid suffix-invalid__small suffix-invalid__large" style="background:url(/images/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title;for(const e of["style","data-title","onerror","onload"])this.removeAttribute(e)'></p><h2 id=参考链接 class=heading-element><span>参考链接</span>
+<a href=#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>都在行文中了</p></div><div class=collection-card><div class="collection-title text-secondary">收录于 <a href=/collections/%E9%85%8D%E7%8E%AF%E5%A2%83/><i class="fa-solid fa-layer-group fa-fw" aria-hidden=true></i> <span>合集・配环境</span></span></a> 1</div><div class=collection-nav></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2025-02-19 15:46:32">更新于 2025-02-19&nbsp;</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 X" data-sharer=twitter data-url=https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/ data-title=VSCode配置C++环境 data-hashtags=C++,VSCode><i class="fa-brands fa-x-twitter fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/ data-hashtag=C++><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://fengjin2333.github.io/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/ data-title=VSCode配置C++环境><i class="fa-brands fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/c++/ class=post-tag title="标签 - C++">C++</a><a href=/tags/vscode/ class=post-tag title="标签 - VSCode">VSCode</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/windows%E4%B8%8B%E4%BD%BF%E7%94%A8hugo%E4%B8%8Egithub-pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/ class=post-nav-item rel=prev title="Windows下使用Hugo与Github Pages部署博客网站"><i class="fa-solid fa-angle-left fa-fw" aria-hidden=true></i>Windows下使用Hugo与Github Pages部署博客网站</a></div></div></article><aside class=toc id=toc-auto aria-label=目录><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside></main><footer class=footer><div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.141.0"><img class=hugo-icon src=/images/hugo.min.svg alt="Hugo logo"> Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/hugo-fixit/FixIt target=_blank rel=external title="FixIt v0.3.17-8b402129"><img class=fixit-icon src=/images/fixit.min.svg alt="FixIt logo"> FixIt</a></div><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright fa-fw" aria-hidden=true></i>
+<span itemprop=copyrightYear>2025</span><span class=author itemprop=copyrightHolder>
+<a href=/>Kissy</a></span></div></div></footer></div><div class=widgets><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role=button aria-label=回到顶部><i class="fa-solid fa-arrow-up fa-fw" aria-hidden=true></i><span class="variant-numeric d-none">0%</span></div></div><div id=mask></div><noscript><div class=noscript-warning>该网站在启用 JavaScript 的情况下效果最佳。</div></noscript></div><link rel=preload href=/lib/katex/katex.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/katex/katex.min.css></noscript><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/katex/katex.min.js defer></script><script src=/lib/katex/auto-render.min.js defer></script><script src=/lib/katex/copy-tex.min.js defer></script><script src=/lib/katex/mhchem.min.js defer></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script>window.config={code:{copyTitle:"复制到剪贴板",editLockTitle:"锁定可编辑代码块",editUnLockTitle:"解锁可编辑代码块",editable:!0,maxShownLines:10},comment:{enable:!1},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验。"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},version:"v0.3.17-8b402129"}</script><script src=/js/theme.min.js defer></script></body></html>

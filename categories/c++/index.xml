@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; - 分类 - Kissy&#39;s Blog</title>
+    <link>http://localhost:1313/categories/c&#43;&#43;/</link>
+    <description>Kissy&#39;s Blog</description>
+    <generator>Hugo 0.141.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 19 Feb 2025 15:46:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCode配置C&#43;&#43;环境</title>
+      <link>http://localhost:1313/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 19 Feb 2025 15:46:32 +0800</pubDate>
+      <guid>http://localhost:1313/posts/vscode%E9%85%8D%E7%BD%AEc-%E7%8E%AF%E5%A2%83/</guid>
+      <category domain="http://localhost:1313/categories/c&#43;&#43;/">C&#43;&#43;</category>
+      <description>&lt;p&gt;由于笔者太懒,加之本文主要是为方便回顾流程所写,只会在一些笔者遇到的问题上详细说明,不会像参考链接中的大多数博客那样详细,orz&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
